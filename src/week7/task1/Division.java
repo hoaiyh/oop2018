@@ -25,13 +25,7 @@ public class Division extends BinaryExpression {
     }
 
     @Override
-    public int envaluate() {
-        int d = 0;
-        try {
-            d = left.envaluate() / right.envaluate();
-        } catch (ArithmeticException e) {
-            System.out.println("Loi khong the chia cho so 0");
-        }
-        return d;
+    public int envaluate()  {
+        return left.envaluate()/right.envaluate();
     }
 }
