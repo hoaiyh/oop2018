@@ -18,7 +18,7 @@ public class Numeral extends Expression {
 
     @Override
     public String toString() {
-        return null;
+        return "Numeral "+value;
     }
 
     @Override

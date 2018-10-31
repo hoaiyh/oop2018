@@ -4,6 +4,11 @@ public class Division extends BinaryExpression {
     private Expression left;
     private Expression right;
 
+    public Division(Expression left, Expression right) {
+        this.left = left;
+        this.right = right;
+    }
+
     @Override
     public Expression left() {
         return left;
@@ -21,14 +26,12 @@ public class Division extends BinaryExpression {
 
     @Override
     public int envaluate() {
-        /*
-        try{
-
-        }catch (ArithmeticException e){
-            System.out.println("Loi chia cho 0");
+        int d = 0;
+        try {
+            d = left.envaluate() / right.envaluate();
+        } catch (ArithmeticException e) {
+            System.out.println("Loi khong the chia cho so 0");
         }
-    }
-    */
-        return left.envaluate() / right.envaluate();
+        return d;
     }
 }
