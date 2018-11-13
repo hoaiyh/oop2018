@@ -48,33 +48,25 @@ public class Utils {
                 System.err.println("ERROR!");
             }
         }
-        //y d
-        public static void findFileByName(String folderPath,String fileName){
+        //tim file trong thu muc
+        public static File findFileByName(String folderPath,String fileName){
             File file = new File(folderPath);
-            if (file.exists()) {
-                if (file.isFile()) {
-                    if (file.getName().endsWith(fileName)) {
-                        System.out.println(file.getAbsolutePath());
-                    }
+            for(File file1:file.listFiles()){
+                if(file1.getName().equals(fileName)){
+                    return file;
                 }
-                File[] listFile = file.listFiles();
-                if (listFile != null) {
-                    for (File f : listFile) {
-                        findFileByName(f.getAbsolutePath(), fileName);
-                    }
-                }
-            } else {
-                System.out.println("source không tồn tại");
             }
+            return null;
+
         }
         public static void main(String [] ab){
-            String path = "hoai.txt";
-            String p = "output.txt";
+            String path = "C:\\Users\\HP\\Desktop\\hoai.txt";
             String folderpath = "C:\\Users\\HP\\Desktop\\h";
-            String fileName = "2";
+            String fileName = "ex.txt";
             System.out.println(readContentFromFile(path));
-       writeContentToFile(p);
-       writeContentToFile1(path);
-            findFileByName(folderpath,fileName);
+            writeContentToFile(path);
+            writeContentToFile1(path);
+            System.out.println(findFileByName(folderpath,fileName));
+
         }
     }
